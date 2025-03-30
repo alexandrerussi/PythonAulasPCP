@@ -4,7 +4,7 @@ num2 = 2
 print(type(num1), type(num2))
 
 soma = num1 + num2
-print("Soma: ", soma, type(soma))
+print("Soma: ", soma, type(soma)    )
 
 subtracao = num1 - num2
 print("Sub: ", subtracao, type(subtracao))

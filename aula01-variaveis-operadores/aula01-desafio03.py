@@ -1,3 +1,4 @@
-num1 = input("Digite o primeiro num: ")
-num2 = input("Digite o segundo num: ")
+num1 = int(input("Digite o primeiro num: "))
+num2 = int(input("Digite o segundo num: "))
 
+print(num1 + num2)
