@@ -1,7 +1,7 @@
-from stages import new_lead
+from stages import model_lead
 import repo
 
-def add_flow():
+def add_leads():
     name = input("Nome: ").strip()
     company = input("Empresa: ").strip()
     email = input("E-mail: ").strip()
@@ -9,17 +9,15 @@ def add_flow():
         print("Nome e e-mail válido são obrigatórios.")
         return
 
-    print(new_lead(name, company, email)) # AQUI CRIA O STAGES.PY
-
-    repo.add_lead(new_lead(name, company, email))
+    repo.create_lead(model_lead(name, company, email))
 
     print("✔ Lead adicionado!")
 
 # -----------------------------
 # PARTE 0
 # -----------------------------
-def list_flow():
-    leads = repo.list_leads()
+def list_leads():
+    leads = repo.read_leads()
     if not leads:
         print("Nenhum lead ainda.")
         return
@@ -36,7 +34,7 @@ def search_flow():
     if not q:
         print("Consulta vazia.")
         return
-    leads = repo.list_leads()
+    leads = repo.read_leads()
     results = []
     for i, l in enumerate(leads):
         blob = f"{l['name']} {l['company']} {l['email']}".lower()
@@ -53,7 +51,7 @@ def search_flow():
 # -----------------------------
 # PARTE 4 -- criar vazio e dps exportar da função
 # -----------------------------
-def export_flow():
+def export_leads():
     path = repo.export_csv()
     if path is None:
         print("Não consegui escrever o CSV. Feche o arquivo se estiver aberto e tente novamente.")
@@ -61,20 +59,20 @@ def export_flow():
         print(f"✔ Exportado para: {path}")
 
 # -----------------------------
-# PARTE 2 - criar search_flow primeiro, dps export_flow
+# PARTE 2 - criar search_flow primeiro, dps export_leads
 # -----------------------------
 def main():
     while True:
         print_menu()
         op = input("Escolha: ").strip()
         if op == "1":
-            add_flow()
+            add_leads()
         elif op == "2":
-            list_flow()
+            list_leads()
         elif op == "3":
             search_flow()      # <-- novo
         elif op == "4":
-            export_flow()      # <-- novo
+            export_leads()      # <-- novo
         elif op == "0":
             print("Até mais!")
             break

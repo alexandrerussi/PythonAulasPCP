@@ -12,5 +12,12 @@
     "email": "b@c.com",
     "stage": "novo",
     "created": "2025-10-05"
+  },
+  {
+    "name": "Maria",
+    "company": "Alura",
+    "email": "maria@alura.com.br",
+    "stage": "novo",
+    "created": "2025-10-24"
   }
 ]

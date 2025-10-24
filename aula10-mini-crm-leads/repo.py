@@ -20,10 +20,10 @@ def _save(leads):
 # -----------------------------
 # PARTE 0
 # -----------------------------
-def list_leads():
+def read_leads():
     return _load()
 
-def add_lead(lead_dict):
+def create_lead(lead_dict):
     leads = _load()
     leads.append(lead_dict)
     _save(leads)
